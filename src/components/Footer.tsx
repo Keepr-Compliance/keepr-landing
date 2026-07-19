@@ -32,6 +32,7 @@ export function Footer() {
               <a href={`mailto:${supportEmail}`}>Support</a>
               <a href="/privacy">Privacy</a>
               <a href="/terms">Terms</a>
+              <a href="/cookies">Cookies</a>
             </div>
             <div className="foot-col">
               <span className="h">Contact</span>
