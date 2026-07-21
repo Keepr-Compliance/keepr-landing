@@ -37,14 +37,15 @@ export const downloads = {
 } as const;
 
 /**
- * Primary "Download" CTA target. Points at the latest-release page so the button
- * always works and lets the visitor pick their platform. Platform-specific buttons
- * (mac/windows) are available in the download section for one-click installs.
- *
- * TODO(founder): if/when app.keeprcompliance.com/download exists as a stable
- * platform-detecting redirect, swap this to that URL.
+ * Primary "Download" CTA target → our own /download page, which detects the
+ * visitor's OS and starts the correct direct download (falling back to platform
+ * buttons). This keeps users on keeprcompliance.com instead of dumping them on
+ * the GitHub releases page.
  */
-export const primaryDownloadHref = downloads.releasesPage;
+export const primaryDownloadHref = "/download";
+
+/** Broker/app sign-in — the portal login. */
+export const signInHref = "https://app.keeprcompliance.com/login";
 
 /** Team / brokerage demo booking link (from the approved prototype). */
 export const bookDemoHref =

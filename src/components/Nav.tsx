@@ -1,4 +1,4 @@
-import { primaryDownloadHref } from "@/lib/site";
+import { primaryDownloadHref, signInHref } from "@/lib/site";
 
 export function Nav() {
   return (
@@ -15,8 +15,7 @@ export function Nav() {
             <a href="#pricing" className="link">
               Pricing
             </a>
-            {/* TODO(founder): point "Sign in" at the real app sign-in URL. */}
-            <a href={primaryDownloadHref} className="link">
+            <a href={signInHref} className="link">
               Sign in
             </a>
           </nav>
