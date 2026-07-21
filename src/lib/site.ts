@@ -4,10 +4,9 @@
  * DOWNLOAD LINKS
  * --------------
  * The desktop app auto-updater feed lives in the PUBLIC repo `keepr-releases`.
- * Latest release verified at build time: v2.24.0 (assets present on the org feed).
- * RELEASE CHECKLIST: bump LATEST_VERSION to v2.25.0 when that release is cut, in the
- * same change that flips this landing to production — the two ship together so the
- * first public download is the fixed build (v2.25.0 carries the launch-blocker fixes).
+ * Latest release: v2.25.0 (published to the feed 2026-07-21; carries the launch-blocker fixes).
+ * RELEASE CHECKLIST: bump LATEST_VERSION each time a new release is cut so the platform
+ * download buttons serve the newest build.
  *
  * TODO(founder): confirm the canonical public host for downloads. The auto-updater
  * feed repo was transferred 5hdaniel -> Keepr-Compliance; both hosts currently
@@ -21,7 +20,7 @@
 const RELEASE_REPO = "Keepr-Compliance/keepr-releases";
 
 /** Latest shipped desktop version — bump when a new release lands (or replace with a redirect). */
-export const LATEST_VERSION = "2.24.0";
+export const LATEST_VERSION = "2.25.0";
 
 const releaseBase = `https://github.com/${RELEASE_REPO}/releases`;
 const assetBase = `${releaseBase}/download/v${LATEST_VERSION}`;
