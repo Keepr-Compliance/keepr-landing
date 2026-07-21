@@ -7,6 +7,24 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
+  // Safety net for the domain cutover: once keeprcompliance.com (apex + www) points
+  // at this landing project, the broker portal stays on app.keeprcompliance.com.
+  // Forward any stray login traffic (old bookmarks, invite/magic-link emails that
+  // used the apex/www host) to the portal so it never 404s on the marketing site.
+  async redirects() {
+    return [
+      {
+        source: "/login",
+        destination: "https://app.keeprcompliance.com/login",
+        permanent: false,
+      },
+      {
+        source: "/login/:path*",
+        destination: "https://app.keeprcompliance.com/login/:path*",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
