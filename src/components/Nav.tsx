@@ -1,18 +1,20 @@
+import Link from "next/link";
 import { primaryDownloadHref, signInHref } from "@/lib/site";
 
 export function Nav() {
   return (
     <header className="nav">
       <div className="wrap">
-        <a href="#top" className="wordmark">
+        <Link href="/" className="wordmark">
           Keepr<span className="dot">.</span>
-        </a>
+        </Link>
         <div className="nav-cta">
           <nav className="nav-links">
-            <a href="#how" className="link">
+            {/* Root-relative so these work from any page (e.g. /download), not just the homepage. */}
+            <a href="/#how" className="link">
               How it works
             </a>
-            <a href="#pricing" className="link">
+            <a href="/#pricing" className="link">
               Pricing
             </a>
             <a href={signInHref} className="link">
