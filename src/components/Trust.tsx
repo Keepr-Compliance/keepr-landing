@@ -1,5 +1,9 @@
 import { LockIcon, ShieldIcon, BuildingIcon, DocCheckIcon } from "./icons";
 
+// Testimonials section is hidden until we have real, permissioned quotes from named
+// agents. Do NOT set true with placeholder/invented endorsements (FTC violation).
+const SHOW_TESTIMONIALS = false;
+
 export function Trust() {
   return (
     <section id="trust">
@@ -57,7 +61,10 @@ export function Trust() {
           </div>
         </div>
 
-        <Testimonials />
+        {/* Hidden until we have REAL, permissioned testimonials from named agents
+            (see Testimonials() below). Flip to true only with real, permissioned quotes —
+            invented endorsements would be an FTC violation. */}
+        {SHOW_TESTIMONIALS && <Testimonials />}
       </div>
     </section>
   );
