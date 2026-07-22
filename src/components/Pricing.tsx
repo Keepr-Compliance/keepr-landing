@@ -1,5 +1,5 @@
 import { primaryDownloadHref, bookDemoHref, pricingTiers } from "@/lib/site";
-import { AlertIcon, ShieldCheckIcon, InfoIcon } from "./icons";
+import { ShieldCheckIcon, InfoIcon } from "./icons";
 
 /**
  * Pricing — founder-locked (BACKLOG-2003): PAYG per-deal, DESCENDING by
@@ -21,15 +21,6 @@ export function Pricing() {
             Close more transactions, pay less per deal — no subscription, no upfront cost.
             Every deal you close in a calendar year moves your rate lower.
           </p>
-        </div>
-
-        <div style={{ textAlign: "center" }}>
-          <span className="draft-note">
-            <AlertIcon width={13} height={13} />
-            {/* TODO(founder): confirm these rates for public launch and remove this note
-                once validated. They match the shipped PAYG descending model. */}
-            Starting rates — benchmarked to market; to validate &amp; A/B test
-          </span>
         </div>
 
         <div className="usage">
