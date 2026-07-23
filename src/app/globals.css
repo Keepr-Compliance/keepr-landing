@@ -9,6 +9,9 @@
  */
 
 :root {
+  /* Light-only design — opt out of mobile browser auto-dark-mode (was turning
+     the hero's dark-ink text into black-on-black on phones). */
+  color-scheme: light;
   /* neutrals — slight cool/indigo bias so they read chosen, not default */
   --ground: #F7F8FB;
   --surface: #FFFFFF;
