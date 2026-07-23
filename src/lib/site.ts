@@ -1,40 +1,52 @@
 /**
  * Central site configuration: download links, pricing, and shared marketing constants.
  *
- * DOWNLOAD LINKS
- * --------------
+ * DOWNLOAD LINKS — self-updating (BACKLOG-2194)
+ * ---------------------------------------------
  * The desktop app auto-updater feed lives in the PUBLIC repo `keepr-releases`.
- * Latest release: v2.25.0 (published to the feed 2026-07-21; carries the launch-blocker fixes).
- * RELEASE CHECKLIST: bump LATEST_VERSION each time a new release is cut so the platform
- * download buttons serve the newest build.
- *
- * TODO(founder): confirm the canonical public host for downloads. The auto-updater
- * feed repo was transferred 5hdaniel -> Keepr-Compliance; both hosts currently
- * resolve, but pick ONE for the public marketing links (and ideally front them with
- * a stable app.keeprcompliance.com/download redirect so the landing page never has
- * to hard-code a version number). Until then these point at the current release
- * assets (see LATEST_VERSION below) so the buttons serve the newest build.
+ * The platform buttons point at our own `/dl/*` redirector (src/app/dl/[platform]),
+ * which resolves the newest release asset at request time. There is NO version to bump
+ * here on release — the served build always tracks the latest published release.
+ * `LATEST_VERSION` below is only a display/fallback default; use `getLatestVersion()`
+ * for an accurate on-page version label.
  */
 
 /** GitHub org that owns the public release feed. */
 const RELEASE_REPO = "Keepr-Compliance/keepr-releases";
 
-/** Latest shipped desktop version — bump when a new release lands (or replace with a redirect). */
-export const LATEST_VERSION = "2.25.0";
+/** Display/fallback version only — real downloads resolve via the `/dl/*` redirector. */
+export const LATEST_VERSION = "2.25.2";
 
 const releaseBase = `https://github.com/${RELEASE_REPO}/releases`;
-const assetBase = `${releaseBase}/download/v${LATEST_VERSION}`;
 
 export const downloads = {
-  /** All-releases page — safe fallback that never 404s on a version bump. */
+  /** All-releases page — safe fallback that never 404s. */
   releasesPage: `${releaseBase}/latest`,
-  /** macOS — Apple Silicon (M-series). */
-  macArm: `${assetBase}/Keepr-${LATEST_VERSION}-arm64.dmg`,
-  /** macOS — Intel. */
-  macIntel: `${assetBase}/Keepr-${LATEST_VERSION}.dmg`,
-  /** Windows installer. */
-  windows: `${assetBase}/Keepr-Setup-${LATEST_VERSION}.exe`,
+  /** macOS — Apple Silicon (M-series). Stable redirect → newest arm64 dmg. */
+  macArm: "/dl/mac-arm",
+  /** macOS — Intel. Stable redirect → newest x64 dmg. */
+  macIntel: "/dl/mac-intel",
+  /** Windows installer. Stable redirect → newest exe. */
+  windows: "/dl/win",
 } as const;
+
+/**
+ * Accurate latest version for display (e.g. "2.25.2"), read from the release feed and
+ * cached for an hour. Falls back to LATEST_VERSION if the feed is unreachable.
+ */
+export async function getLatestVersion(): Promise<string> {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${RELEASE_REPO}/releases/latest`, {
+      headers: { Accept: "application/vnd.github+json", "User-Agent": "keepr-landing" },
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return LATEST_VERSION;
+    const data = (await res.json()) as { tag_name?: string };
+    return data.tag_name?.replace(/^v/, "") || LATEST_VERSION;
+  } catch {
+    return LATEST_VERSION;
+  }
+}
 
 /**
  * Primary "Download" CTA target → our own /download page, which detects the
