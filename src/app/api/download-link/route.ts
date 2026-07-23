@@ -38,7 +38,9 @@ function isRateLimited(ip: string): boolean {
 }
 
 // Basic RFC-5322-ish email validation — good enough to reject obvious garbage.
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Linear-time / no catastrophic backtracking: domain labels exclude '.', so the
+// dot-separated groups can't overlap (avoids polynomial ReDoS on hostile input).
+const EMAIL_RE = /^[^\s@]+@[^\s@.]+(?:\.[^\s@.]+)+$/;
 
 // Broker-portal gateway that actually sends the email (holds the M365 secret).
 const GATEWAY_URL =
@@ -65,7 +67,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  if (typeof email !== "string" || !EMAIL_RE.test(email.trim()) || email.length > 320) {
+  if (typeof email !== "string" || email.length > 320 || !EMAIL_RE.test(email.trim())) {
     return NextResponse.json(
       { error: "Please enter a valid email address." },
       { status: 400 },
