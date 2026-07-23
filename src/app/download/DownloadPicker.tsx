@@ -27,7 +27,7 @@ function Foot() {
   );
 }
 
-export function DownloadPicker() {
+export function DownloadPicker({ version = LATEST_VERSION }: { version?: string }) {
   const [os, setOs] = useState<OS>("unknown");
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export function DownloadPicker() {
         Your download will begin shortly…
       </p>
       <p style={{ color: "#666C82", fontSize: 14, margin: "0 0 22px" }}>
-        Keepr for {os === "windows" ? "Windows" : "Mac"} · v{LATEST_VERSION} · Free to download &amp;
+        Keepr for {os === "windows" ? "Windows" : "Mac"} · v{version} · Free to download &amp;
         set up
       </p>
 
