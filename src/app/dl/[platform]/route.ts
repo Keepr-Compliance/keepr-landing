@@ -32,7 +32,11 @@ export async function GET(
   { params }: { params: Promise<{ platform: string }> },
 ) {
   const { platform } = await params;
-  const match = MATCHERS[platform];
+  // Own-property lookup only — guards against inherited Object.prototype keys
+  // (e.g. /dl/toString) resolving to a callable and bypassing the fallback.
+  const match = Object.prototype.hasOwnProperty.call(MATCHERS, platform)
+    ? MATCHERS[platform]
+    : undefined;
 
   // Unknown platform → releases page rather than a 404.
   if (!match) return NextResponse.redirect(RELEASES_LATEST_PAGE, 307);
