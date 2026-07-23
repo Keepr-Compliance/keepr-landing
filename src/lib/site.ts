@@ -44,6 +44,9 @@ export const downloads = {
  */
 export const primaryDownloadHref = "/download";
 
+/** Absolute URL to the /download page — use in emails and other off-site contexts. */
+export const downloadPageUrl = "https://keeprcompliance.com/download";
+
 /** Broker/app sign-in — the portal login. */
 export const signInHref = "https://app.keeprcompliance.com/login";
 
