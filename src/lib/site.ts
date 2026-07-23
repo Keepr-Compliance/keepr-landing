@@ -38,7 +38,7 @@ export async function getLatestVersion(): Promise<string> {
   try {
     const res = await fetch(`https://api.github.com/repos/${RELEASE_REPO}/releases/latest`, {
       headers: { Accept: "application/vnd.github+json", "User-Agent": "keepr-landing" },
-      next: { revalidate: 3600 },
+      next: { revalidate: 300 },
     });
     if (!res.ok) return LATEST_VERSION;
     const data = (await res.json()) as { tag_name?: string };

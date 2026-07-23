@@ -7,8 +7,8 @@ import { NextResponse, type NextRequest } from "next/server";
  * marketing site (and the download-link email) never hard-code a version number.
  * `/dl/mac-arm`, `/dl/mac-intel`, `/dl/win` always 307 → the latest matching asset.
  *
- * The GitHub API response is cached for an hour (`revalidate: 3600`), which keeps us
- * far under the unauthenticated rate limit (60 req/hr/IP) — ~1 upstream call per hour.
+ * The GitHub API response is cached for 5 minutes (`revalidate: 300`), which keeps us
+ * far under the unauthenticated rate limit (60 req/hr/IP) — ~12 upstream calls/hour.
  * Any failure (API down, rate-limited, no matching asset, unknown platform) falls back
  * to the human-readable releases page, so a download link never dead-ends.
  */
@@ -47,7 +47,7 @@ export async function GET(
         Accept: "application/vnd.github+json",
         "User-Agent": "keepr-landing",
       },
-      next: { revalidate: 3600 },
+      next: { revalidate: 300 },
     });
     if (!res.ok) return NextResponse.redirect(RELEASES_LATEST_PAGE, 307);
 
