@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ConsentProvider } from "@/components/consent/ConsentProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://keeprcompliance.com"),
@@ -19,7 +20,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ConsentProvider>{children}</ConsentProvider>
+      </body>
     </html>
   );
 }

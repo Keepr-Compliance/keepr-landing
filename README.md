@@ -72,6 +72,14 @@ The "Download" CTAs point at the **public release feed** (`Keepr-Compliance/keep
 - **Sign-in link** and the stable download redirect — see TODOs in `Nav.tsx` and `site.ts`.
 - **Legal entity** — confirmed as **Blue Spaces LLC** (per the approved prototype); re-confirm before launch.
 
+## Analytics & cookie consent (BACKLOG-2133)
+
+Analytics use an **opt-out** model (US "notice-and-opt-out"): Google Analytics and Microsoft Clarity **load by default** and keep running unless the visitor opts out — or the browser sends a Global Privacy Control (GPC) signal, which forces them off. A first-visit notice bar, a footer **"Cookie settings"** link, and the preferences modal (all under `src/components/consent/`; state + storage rules in `src/lib/consent.ts`) let visitors opt out at any time.
+
+The production IDs are committed as defaults in `src/lib/analytics-config.ts` (GA `G-HEWCVNQCL8`, Clarity `xr5yxy69xn`) — both are **public** client-side identifiers, so no Vercel env step is required. They only load after opt-in **and** never on `localhost` or `*.vercel.app` preview URLs (so previews/dev don't pollute the real properties). To point a deploy at different properties, override with `NEXT_PUBLIC_GA_ID` / `NEXT_PUBLIC_CLARITY_ID` (see `.env.example`); set one to empty to turn that provider off.
+
+Clarity input-masking is a project setting in the Clarity dashboard — set masking mode to strict there. The `/cookies` policy copy and consent wording still need final attorney review (BACKLOG-2122).
+
 ## Deployment
 
 Deployed via **Vercel** (framework auto-detected as Next.js). The founder owns the Vercel project + domain connection — this repo does not contain any Vercel config or secrets, and CI/agents do not deploy it.

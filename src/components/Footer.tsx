@@ -1,4 +1,5 @@
 import { supportEmail, legalEntity } from "@/lib/site";
+import { CookieSettingsLink } from "@/components/consent/CookieSettingsLink";
 
 export function Footer() {
   return (
@@ -33,6 +34,7 @@ export function Footer() {
               <a href="/privacy">Privacy</a>
               <a href="/terms">Terms</a>
               <a href="/cookies">Cookies</a>
+              <CookieSettingsLink />
             </div>
             <div className="foot-col">
               <span className="h">Contact</span>
