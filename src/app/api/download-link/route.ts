@@ -11,6 +11,7 @@
  */
 
 import { NextResponse } from "next/server";
+import { checkBotId } from "botid/server";
 
 // Run on the Node.js runtime; never cache (side-effecting POST).
 export const runtime = "nodejs";
@@ -48,6 +49,20 @@ const GATEWAY_URL =
   "/api/send-download-link";
 
 export async function POST(request: Request) {
+  // Reject bots before doing any work (Vercel BotID; basic mode, no dashboard
+  // setup needed). Fail OPEN if the check can't run — e.g. local dev without
+  // Vercel OIDC, or a transient BotID outage — so a protection hiccup never
+  // breaks the form. The per-IP rate limit and validation below still apply, and
+  // real detection runs on Vercel. BACKLOG-2226.
+  try {
+    const { isBot } = await checkBotId();
+    if (isBot) {
+      return NextResponse.json({ error: "Access denied." }, { status: 403 });
+    }
+  } catch {
+    // BotID infrastructure unavailable — allow the request through.
+  }
+
   // Client IP for the rate-limit key (Vercel sets x-forwarded-for).
   const ip =
     request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
