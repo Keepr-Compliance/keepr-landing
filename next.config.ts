@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import path from "node:path";
+import { withBotId } from "botid/next/config";
 
 const nextConfig: NextConfig = {
   // Pin the Turbopack root to this project so a stray lockfile elsewhere on the
@@ -27,4 +28,6 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// Wrap with BotID so its verification challenge is served first-party (via proxy
+// rewrites), which keeps it out of ad-blocker/tracker lists. See BACKLOG-2226.
+export default withBotId(nextConfig);
