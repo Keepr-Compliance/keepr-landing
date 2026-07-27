@@ -255,13 +255,15 @@ export default function Privacy() {
               <Link href="/cookies">Cookie Policy</Link>.
             </p>
 
-            <h2>4. Email Data — Google (Gmail) and Microsoft</h2>
+            <h2>4. Connected-Account Data — Google and Microsoft (Email, Contacts, Calendar)</h2>
             <p>
-              Keepr can connect to your email so that it can build transaction records from your
-              correspondence. You connect your mailbox using <strong>OAuth</strong> — an
+              Keepr can connect to your Google or Microsoft account so that it can build transaction
+              records from your correspondence, identify the people involved, and — where you enable
+              it — associate calendar events with the related transaction. You connect your account
+              using <strong>OAuth</strong> — an
               industry-standard authorization flow in which <strong>you</strong> grant Keepr
               permission, and you can revoke that permission at any time. Keepr requests{" "}
-              <strong>least-privilege</strong> scopes and accesses your mail only to provide the
+              <strong>least-privilege</strong> scopes and accesses that data only to provide the
               Services&apos; transaction-record features.
             </p>
             <p>
@@ -272,7 +274,17 @@ export default function Privacy() {
               <li>
                 Your Gmail messages and their content (message bodies, headers, sender/recipient
                 information, dates, and attachments) that are relevant to building your transaction
-                records; and
+                records;
+              </li>
+              <li>
+                Your Google Contacts (read-only) — such as names, email addresses, and phone
+                numbers — used to identify and label the people involved in your transactions;
+              </li>
+              <li>
+                Your Google Calendar events (read-only) — such as event titles, times, and
+                participants — used to associate meetings and appointments (for example, showings,
+                inspections, and closings) with the related transaction and build its activity
+                timeline; and
               </li>
               <li>
                 Basic Google account profile information (such as your name, email address, and
@@ -345,7 +357,17 @@ export default function Privacy() {
               <li>
                 Your Outlook/Exchange Online messages and their content (message bodies, headers,
                 sender/recipient information, dates, and attachments) that are relevant to building
-                your transaction records; and
+                your transaction records;
+              </li>
+              <li>
+                Your Outlook/Microsoft contacts (read-only, via Microsoft Graph) — such as names,
+                email addresses, and phone numbers — used to identify and label the people involved
+                in your transactions;
+              </li>
+              <li>
+                Your Outlook/Microsoft calendar events (read-only, via Microsoft Graph) — such as
+                event titles, times, and participants — used to associate meetings and appointments
+                with the related transaction and build its activity timeline; and
               </li>
               <li>
                 Basic Microsoft account profile information used to establish and maintain the
