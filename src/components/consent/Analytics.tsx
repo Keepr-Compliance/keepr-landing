@@ -1,10 +1,16 @@
 "use client";
 
 /**
- * Consent-gated analytics tags. Rendered by <ConsentProvider>; under the opt-out
- * model these load by default and inject whenever `analyticsAllowed` is true (not
- * opted out + no GPC signal) AND the host is allowed (not local dev or a Vercel
- * preview URL).
+ * Consent-gated analytics tags, HYBRID model (2026-07-27 legal risk review, B-R1):
+ *
+ * - Google Analytics = OPT-OUT: loads by default whenever `analyticsAllowed`
+ *   (not opted out + no GPC signal).
+ * - Microsoft Clarity = AFFIRMATIVE CONSENT ONLY: session recording implicates
+ *   US wiretap/session-replay statutes (CIPA §631/632, PA WESCA, FL FSA §934.03),
+ *   and Javier v. Assurance IQ (9th Cir.) reads CIPA to require consent BEFORE
+ *   capture. So Clarity injects only after the visitor affirmatively agrees
+ *   (`status === "granted"` via "Got it" or saving the toggle on) — never during
+ *   the pre-choice "unknown" window.
  *
  * IDs + host rules live in src/lib/analytics-config.ts. Clarity input-masking is
  * a project-level setting in the Clarity dashboard (set masking to strict) — it
@@ -16,11 +22,14 @@ import { CLARITY_ID, GA_ID, analyticsHostAllowed } from "@/lib/analytics-config"
 import { useConsent } from "./ConsentProvider";
 
 export function Analytics() {
-  const { analyticsAllowed } = useConsent();
+  const { analyticsAllowed, status } = useConsent();
 
   const hostAllowed =
     typeof location !== "undefined" && analyticsHostAllowed(location.hostname);
   if (!analyticsAllowed || !hostAllowed) return null;
+
+  // Session recording requires an affirmative choice; "unknown" is not consent.
+  const clarityAllowed = status === "granted";
 
   return (
     <>
@@ -39,7 +48,7 @@ gtag('config', '${GA_ID}');`}
         </>
       ) : null}
 
-      {CLARITY_ID ? (
+      {CLARITY_ID && clarityAllowed ? (
         <Script id="ms-clarity" strategy="afterInteractive">
           {`(function(c,l,a,r,i,t,y){
 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

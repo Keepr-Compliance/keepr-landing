@@ -72,7 +72,8 @@ export function CookiePreferences() {
             <span className="cc-row-title">Analytics &amp; performance</span>
             <span className="cc-row-desc">
               Google Analytics and Microsoft Clarity, so we can see how the site
-              is used and improve it.
+              is used and improve it. Clarity session replay only runs after you
+              allow analytics here or on the notice bar.
             </span>
             {gpc ? (
               <span className="cc-row-note">

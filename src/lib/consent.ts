@@ -1,13 +1,17 @@
 /**
  * Cookie-consent model for the marketing site (BACKLOG-2133).
  *
- * Keepr runs an OPT-OUT model (US "notice-and-opt-out"): non-essential analytics
- * (Google Analytics + Microsoft Clarity) load by default and keep running unless
- * the visitor opts out — or the browser sends a Global Privacy Control signal, in
- * which case they stay off. Strictly-necessary cookies are not covered here — they
- * are always allowed. There is a single non-essential category ("Analytics /
- * Performance") which matches the Cookie Policy, so the choice is a single boolean
- * rather than a per-vendor matrix.
+ * Keepr runs a HYBRID model (2026-07-27 legal risk review):
+ * - Google Analytics = US "notice-and-opt-out": loads by default and keeps
+ *   running unless the visitor opts out — or the browser sends a Global Privacy
+ *   Control signal, in which case it stays off.
+ * - Microsoft Clarity (session recording) = affirmative consent only: injects
+ *   only after the visitor agrees ("granted"), never pre-choice (see
+ *   Analytics.tsx for the statutory rationale).
+ * Strictly-necessary cookies are not covered here — they are always allowed.
+ * There is a single non-essential category ("Analytics / Performance") matching
+ * the Cookie Policy, so the stored choice is a single boolean; the per-vendor
+ * split is purely about WHEN each tag may start.
  *
  * The choice is persisted in a first-party cookie so it survives across pages and
  * can be re-read on return visits. Bumping CONSENT_VERSION re-prompts everyone
@@ -17,8 +21,13 @@
 /** First-party cookie that stores the visitor's choice. */
 export const CONSENT_COOKIE = "keepr_cookie_consent";
 
-/** Schema/policy version. Bump to invalidate stored choices and re-prompt. */
-export const CONSENT_VERSION = 1;
+/**
+ * Schema/policy version. Bump to invalidate stored choices and re-prompt.
+ * v2 (2026-07-27): "Got it" now doubles as affirmative consent to Clarity
+ * session recording (hybrid model) — bumped so choices recorded under the
+ * v1 pure-opt-out semantics are re-asked rather than silently upgraded.
+ */
+export const CONSENT_VERSION = 2;
 
 /** How long a recorded choice is remembered. */
 const MAX_AGE_DAYS = 180;
