@@ -19,9 +19,9 @@ export function CookieBanner() {
     <div className="cc-banner" role="region" aria-label="Cookie consent">
       <div className="cc-banner-wrap">
         <p className="cc-copy">
-          We use cookies, including Google Analytics and Microsoft Clarity, to
-          understand how visitors use our site so we can improve it. You can opt
-          out anytime.{" "}
+          We use cookies, including Google Analytics, to understand how visitors
+          use our site. Session replay (Microsoft Clarity) runs only if you allow
+          it. You can opt out anytime.{" "}
           <Link href="/cookies" className="cc-link">
             Cookie Policy
           </Link>
