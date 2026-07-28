@@ -12,7 +12,7 @@ import Link from "next/link";
 import { useConsent } from "./ConsentProvider";
 
 export function CookieBanner() {
-  const { showBanner, accept, openPrefs } = useConsent();
+  const { showBanner, accept, reject, openPrefs } = useConsent();
   if (!showBanner) return null;
 
   return (
@@ -29,6 +29,9 @@ export function CookieBanner() {
         <div className="cc-actions">
           <button type="button" className="cc-btn cc-btn-ghost" onClick={openPrefs}>
             Cookie settings
+          </button>
+          <button type="button" className="cc-btn cc-btn-ghost" onClick={reject}>
+            Decline
           </button>
           <button type="button" className="cc-btn cc-btn-primary" onClick={accept}>
             Got it

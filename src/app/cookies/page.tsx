@@ -215,8 +215,8 @@ export default function Cookies() {
 
             <h2>5. Third-party analytics providers</h2>
             <p>
-              We use the following third-party analytics providers to measure website usage and
-              calls-to-action on keeprcompliance.com. The founder may use any or all of them:
+              We use, or may use, the following third-party analytics providers to measure website
+              usage and calls-to-action on keeprcompliance.com:
             </p>
             <ul>
               <li>
