@@ -16,6 +16,13 @@ export const metadata: Metadata = {
  * bundle, Blue Spaces LLC). Reproduced MOSTLY VERBATIM — reformatted from Markdown
  * to JSX only; legal substance is unchanged. DO NOT edit clause wording here.
  *
+ * AMENDED (BACKLOG-2956) — Android companion. Section 1 (scope), Section 2
+ * (summary), a new Section 3.6, Section 5, and Section 10 now describe the Keepr
+ * Companion app for Android: the phone's own address book as a contact source, and
+ * the local-network path from the phone to the user's paired computer. These
+ * paragraphs are NOT in keepr-legal-drafts/privacy-policy.md — that source file now
+ * lags this page and must be synced before counsel's final review.
+ *
  * TODO(founder/counsel): this is DRAFT text pending final attorney review before it
  * is presented as the operative, public Privacy Policy. Tracked under BACKLOG-2164
  * (landing) and the Legal, IP & Compliance epic (BACKLOG-2116).
@@ -41,8 +48,9 @@ export default function Privacy() {
             <p>
               This Privacy Policy explains how Blue Spaces LLC (&quot;Keepr,&quot; &quot;we,&quot;
               &quot;us,&quot; or &quot;our&quot;) collects, uses, discloses, and protects personal
-              information in connection with the Keepr desktop application, the Keepr broker portal,
-              and our website. By using Keepr, you acknowledge the practices described here.
+              information in connection with the Keepr desktop application, the Keepr Companion app
+              for Android, the Keepr broker portal, and our website. By using Keepr, you acknowledge
+              the practices described here.
             </p>
             <p>
               Keepr helps real-estate agents and brokerages build{" "}
@@ -59,6 +67,11 @@ export default function Privacy() {
                 <strong>The Keepr desktop application</strong> (macOS and Windows) — the &quot;App&quot;;
               </li>
               <li>
+                <strong>The Keepr Companion app for Android</strong> — the &quot;Companion
+                App&quot; — an optional app you pair with the App on your own computer so that
+                the text messages on your phone become part of your transaction records;
+              </li>
+              <li>
                 <strong>The Keepr broker portal</strong> at app.keeprcompliance.com — the
                 &quot;Portal&quot;; and
               </li>
@@ -67,9 +80,9 @@ export default function Privacy() {
               </li>
             </ul>
             <p>
-              Together, the App, Portal, and Website are the &quot;Services.&quot; Where the App,
-              Portal, and Website are treated differently — which is often, because of Keepr&apos;s
-              local-first design — we say so.
+              Together, the App, Companion App, Portal, and Website are the
+              &quot;Services.&quot; Where the App, Companion App, Portal, and Website are treated
+              differently — which is often, because of Keepr&apos;s local-first design — we say so.
             </p>
             <p>
               This Policy does <strong>not</strong> cover third-party services you connect to Keepr
@@ -89,6 +102,13 @@ export default function Privacy() {
                 text-message bodies, contacts, transactions, and attachments are stored{" "}
                 <strong>encrypted on your own device</strong> and are <strong>not</strong> synced to
                 Keepr&apos;s servers in the background.
+              </li>
+              <li>
+                <strong>If you use the Android Companion App, your phone&apos;s data goes to your
+                own computer, not to us.</strong> The text messages and contacts it reads from your
+                phone are encrypted on the phone and sent over your local network to the App on the
+                computer you paired it with. That content does <strong>not</strong> pass through
+                Keepr&apos;s servers. See Section 3.6.
               </li>
               <li>
                 <strong>We receive a limited set of data by default</strong> — your account profile,
@@ -255,6 +275,61 @@ export default function Privacy() {
               <Link href="/cookies">Cookie Policy</Link>.
             </p>
 
+            <p>
+              <strong>3.6 Keepr Companion app for Android.</strong> The{" "}
+              <strong>Companion App</strong> is optional. It applies only if you install it on an
+              Android phone and pair it with the App on your own computer. If you use Keepr on your
+              computer alone — as most users do — nothing in this Section 3.6 applies to you, and
+              your phone&apos;s messages and address book are never read.
+            </p>
+            <p>
+              When you install the Companion App, pair it with your computer, and grant it the
+              Android permissions it asks for, it reads the following from that phone:
+            </p>
+            <ul>
+              <li>
+                <strong>Text messages (SMS).</strong> The message text, the phone number it was sent
+                to or received from, and the date and time — for messages you have received and
+                messages you have sent. The Companion App does <strong>not</strong> read picture or
+                group messages (MMS).
+              </li>
+              <li>
+                <strong>Contacts from that phone&apos;s own address book.</strong> The
+                contact&apos;s name and phone numbers, along with email addresses and company and
+                job title where the entry has them — used so that Keepr can show you who a message
+                is from instead of a bare phone number. This is your phone&apos;s address book,
+                which is <strong>separate from</strong> the Google and Microsoft contacts described
+                in Section 4: connecting a Google or Microsoft account does not read your phone, and
+                using the Companion App does not read those accounts.
+              </li>
+            </ul>
+            <p>
+              <strong>Where that data goes.</strong> The messages and contacts the Companion App
+              reads are <strong>encrypted on your phone</strong> (AES-256-GCM) and sent{" "}
+              <strong>over your own local network</strong> — for example the Wi-Fi network your
+              phone and your computer are both connected to — to the App on the computer you paired
+              with, where they are stored encrypted on that computer like your other primary data
+              (Section 3.1). That message and contact content is <strong>not sent to Keepr&apos;s
+              servers</strong> and is not stored in our cloud; like anything else on your computer,
+              it reaches us only if <strong>you</strong> submit a transaction to your broker (Section
+              3.3). The Companion App syncs <strong>in the background, on a schedule, including when
+              the app is closed</strong>, so that new messages are captured without you having to
+              open it. It <strong>never sends, forwards, or replies to</strong> a text message.
+            </p>
+            <p>
+              The Companion App does communicate with our servers for two limited purposes, both
+              already described in Section 3.2: you sign in to your Keepr account on the phone
+              (account profile and session information), and the app reports crashes and errors to
+              our error-monitoring provider. Neither carries the content of your text messages or
+              your phone&apos;s address book.
+            </p>
+            <p>
+              You can stop this at any time — turn syncing off in the Companion App&apos;s settings,
+              revoke the SMS or Contacts permission in Android&apos;s system settings, or uninstall
+              the Companion App. Messages and contacts already synced to your computer stay there,
+              under your control (Section 9).
+            </p>
+
             <h2>4. Connected-Account Data — Google and Microsoft (Email, Contacts, Calendar)</h2>
             <p>
               Keepr can connect to your Google or Microsoft account so that it can build transaction
@@ -415,6 +490,15 @@ export default function Privacy() {
               (Section 3.1).
             </p>
             <p>
+              <strong>Text messages captured with the Keepr Companion app for Android.</strong> If
+              you use the Companion App, what it captures is <strong>SMS only — it does not read
+              picture or group messages (MMS)</strong>, and those messages travel from your phone to
+              the App on your own computer over your local network rather than through Keepr&apos;s
+              servers. Section 3.6 describes what the Companion App reads, where it sends it, and
+              how to turn it off. Text messages you ingest another way — for example from the
+              Messages database on your own Mac — are covered by the paragraph above.
+            </p>
+            <p>
               <strong>
                 You are responsible for having the authority and consent to capture the messages you
                 ingest.
@@ -573,7 +657,12 @@ export default function Privacy() {
                 encrypted at rest by Supabase.
               </li>
               <li>
-                <strong>Encryption in transit.</strong> TLS/HTTPS is used across the Services.
+                <strong>Encryption in transit.</strong> TLS/HTTPS is used across the Services. The
+                Keepr Companion app for Android is the one exception, because its sync does not
+                travel over the internet: it sends directly to your own computer over your local
+                network, and every batch of messages or contacts is encrypted on the phone with
+                AES-256-GCM — under a key established when you pair the two devices — before it
+                leaves the phone.
               </li>
               <li>
                 <strong>Tenant isolation.</strong> The Portal enforces Postgres row-level security so
