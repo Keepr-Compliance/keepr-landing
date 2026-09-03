@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://keeprcompliance.com"),
   title: "Keepr — Keep every deal, without keeping track",
   description:
-    "Keepr pulls every text and email from a real estate transaction and hands you a finished, audit-ready package — export-ready in 90 seconds. Local-first and encrypted on your device.",
+    "Keepr pulls every text and email from a real estate transaction and hands you a finished, audit-ready package — export-ready in 3 minutes. Local-first and encrypted on your device.",
   openGraph: {
     title: "Keepr — Keep every deal, without keeping track",
     description:
