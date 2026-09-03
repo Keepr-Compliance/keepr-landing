@@ -45,7 +45,7 @@ export function OldWayVsKeepr() {
               </li>
             </ul>
             <div className="tally">
-              90 seconds <small>then back to your next deal</small>
+              3 minutes <small>then back to your next deal</small>
             </div>
           </div>
         </div>

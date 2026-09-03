@@ -19,7 +19,7 @@ export function Hero() {
           </h1>
           <p className="sub">
             Keepr pulls every text and email from a transaction and hands you a finished
-            audit package — export-ready in 90 seconds. The last step before you get paid,
+            audit package — export-ready in 3 minutes. The last step before you get paid,
             done for you.
           </p>
           <div className="hero-actions">
