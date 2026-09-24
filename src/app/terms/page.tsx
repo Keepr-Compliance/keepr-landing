@@ -29,8 +29,7 @@ export default function Terms() {
           <article className="legal">
             <h1>Keepr — Terms of Service</h1>
             <p className="updated">
-              Version 1.0 (Core) · Effective Date: July 18, 2026 · Draft — pending final
-              legal review.
+              Version 1.0 (Core) · Effective Date: July 18, 2026
             </p>
             <p>
               These Terms of Service (&quot;<strong>Terms</strong>&quot;) form a binding
