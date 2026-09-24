@@ -32,12 +32,6 @@ export default function Privacy() {
               Version 1.0 (Core) · Effective date: July 18, 2026 · Draft — pending final
               legal review.
             </p>
-            <div className="todo">
-              Draft — pending final legal review. This text is reproduced from Keepr&apos;s
-              counsel-ready v1.0 (Core) draft and is being finalized with legal counsel. It
-              is not yet the operative, attorney-approved Privacy Policy.
-            </div>
-
             <p>
               This Privacy Policy explains how Blue Spaces LLC (&quot;Keepr,&quot; &quot;we,&quot;
               &quot;us,&quot; or &quot;our&quot;) collects, uses, discloses, and protects personal
