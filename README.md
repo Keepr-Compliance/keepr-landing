@@ -47,18 +47,15 @@ src/
 
 Interactive pieces (`TxDemo`, `HowItWorks`, `EmailCapture`) are client components; everything else is a server component.
 
-## Pricing (founder-locked)
+## Pricing (founder-approved)
 
-Pricing is **pay-as-you-go per deal, descending by calendar-year volume** (annual reset), charged per unlock, only on deals that **close**:
+Three plans, defined once in `src/lib/site.ts` (`plans`) and rendered by `src/components/Pricing.tsx`:
 
-| Volume (per calendar year) | Rate |
-|---|---|
-| First 3 deals | $14.99 / deal |
-| Deals 4–10 | $13.00 / deal |
-| Deals 11–25 | $12.00 / deal |
-| 26 deals & up | $11.00 / deal |
-
-This matches the shipped product. There are **no prepaid credit bundles** — do not reintroduce them. The tiers are defined once in `src/lib/site.ts`.
+| Plan | Price | Notes |
+|---|---|---|
+| Solo Export | $14.99 per export | Pay as you go |
+| Agent | $19.99 / month | Single license, unlimited text and email exports |
+| Brokerage | Not shown on the site | "Book a Call" (demo required) |
 
 ## Download links
 
