@@ -69,14 +69,11 @@ export const supportEmail = "support@keeprcompliance.com";
 export const legalEntity = "Blue Spaces LLC";
 
 /**
- * PRICING — founder-locked (BACKLOG-2003, 2026-07-17):
- * PAYG per-deal, DESCENDING by calendar-year volume, annual reset. Charged per
- * unlock, only on deals that CLOSE. This matches the shipped product.
- * NOT prepaid credit bundles (those are not built — do not reintroduce them).
+ * PRICING — plans (founder-approved, 2026-09).
+ * Brokerage price ($29 / agent / month) is NOT shown on the site — "Book a Call".
  */
-export const pricingTiers = [
-  { range: "Your first 3 deals", price: "$14.99", save: "base rate", isBase: true },
-  { range: "Deals 4–10", price: "$13.00", save: "save 13%", isBase: false },
-  { range: "Deals 11–25", price: "$12.00", save: "save 20%", isBase: false },
-  { range: "26 deals & up", price: "$11.00", save: "save 27%", isBase: false },
-] as const;
+export const plans = {
+  solo: { name: "Solo Export", price: "$14.99" }, // per export, pay as you go
+  agent: { name: "Agent", price: "$19.99" }, // per month, single license
+  brokerage: { name: "Brokerage" }, // per month / per agent, demo required
+} as const;
