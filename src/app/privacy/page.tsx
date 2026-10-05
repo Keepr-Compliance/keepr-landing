@@ -23,6 +23,16 @@ export const metadata: Metadata = {
  * paragraphs are NOT in keepr-legal-drafts/privacy-policy.md — that source file now
  * lags this page and must be synced before counsel's final review.
  *
+ * AMENDED (BACKLOG-3640 / BACKLOG-3619) — Keepr for Google Messages (Chrome
+ * extension). Section 1 (scope), Section 2 (summary), a new Section 3.7 (including
+ * the Chrome Web Store Limited Use statement), Section 5, and Section 10 now
+ * describe the extension: it reads Google Messages for Web during a Sync the user
+ * starts in the App and sends the texts only to the App on the same computer over a
+ * local connection (127.0.0.1). Source of truth: chrome-extension/CHROMEWEBSTORE.md
+ * in the Keepr app repo. These paragraphs are NOT in
+ * keepr-legal-drafts/privacy-policy.md either and must be synced before counsel's
+ * final review.
+ *
  * TODO(founder/counsel): this is DRAFT text pending final attorney review before it
  * is presented as the operative, public Privacy Policy. Tracked under BACKLOG-2164
  * (landing) and the Legal, IP & Compliance epic (BACKLOG-2116).
@@ -42,7 +52,8 @@ export default function Privacy() {
               This Privacy Policy explains how Blue Spaces LLC (&quot;Keepr,&quot; &quot;we,&quot;
               &quot;us,&quot; or &quot;our&quot;) collects, uses, discloses, and protects personal
               information in connection with the Keepr desktop application, the Keepr Companion app
-              for Android, the Keepr broker portal, and our website. By using Keepr, you acknowledge
+              for Android, the Keepr for Google Messages Chrome extension, the Keepr broker portal,
+              and our website. By using Keepr, you acknowledge
               the practices described here.
             </p>
             <p>
@@ -65,6 +76,11 @@ export default function Privacy() {
                 the text messages on your phone become part of your transaction records;
               </li>
               <li>
+                <strong>Keepr for Google Messages</strong> — the &quot;Extension&quot; — an
+                optional Chrome extension that works with the App on your own computer so that the
+                texts in Google Messages for Web become part of your transaction records;
+              </li>
+              <li>
                 <strong>The Keepr broker portal</strong> at app.keeprcompliance.com — the
                 &quot;Portal&quot;; and
               </li>
@@ -73,8 +89,8 @@ export default function Privacy() {
               </li>
             </ul>
             <p>
-              Together, the App, Companion App, Portal, and Website are the
-              &quot;Services.&quot; Where the App, Companion App, Portal, and Website are treated
+              Together, the App, Companion App, Extension, Portal, and Website are the
+              &quot;Services.&quot; Where the App, Companion App, Extension, Portal, and Website are treated
               differently — which is often, because of Keepr&apos;s local-first design — we say so.
             </p>
             <p>
@@ -102,6 +118,11 @@ export default function Privacy() {
                 phone are encrypted on the phone and sent over your local network to the App on the
                 computer you paired it with. That content does <strong>not</strong> pass through
                 Keepr&apos;s servers. See Section 3.6.
+              </li>
+              <li>
+                <strong>If you use the Keepr for Google Messages extension, your texts go only to
+                the App on the same computer, not to us.</strong> The extension sends nothing to any
+                server. See Section 3.7.
               </li>
               <li>
                 <strong>We receive a limited set of data by default</strong> — your account profile,
@@ -323,6 +344,103 @@ export default function Privacy() {
               under your control (Section 9).
             </p>
 
+            <p>
+              <strong>3.7 Keepr for Google Messages (Chrome extension).</strong> The{" "}
+              <strong>Extension</strong> is optional. It applies only if you add it to Chrome on
+              your computer and link it with the App on that same computer (using a 6-digit code
+              shown in the App). If you do not use it, nothing in this Section 3.7 applies to you.
+            </p>
+            <p>
+              <strong>Before the first Sync.</strong> The App asks for your consent before it copies
+              any texts from Google Messages, and nothing is copied before you agree. A Sync runs
+              only when you start it in the App.
+            </p>
+            <p>
+              <strong>What it reads.</strong> When you start a Sync in the App, the Extension reads
+              the conversations in Google Messages for Web (messages.google.com) for the period set
+              in the App:
+            </p>
+            <ul>
+              <li>
+                <strong>Text messages</strong> — the message text, the images in them, and
+                reactions; and
+              </li>
+              <li>
+                <strong>The names and phone numbers</strong> of the people in each chat, as Google
+                Messages shows them.
+              </li>
+            </ul>
+            <p>
+              When no Sync is running, the Extension only looks at the chat list to show its
+              per-chat on/off switches; it copies nothing. It reads nothing outside
+              messages.google.com, does not see your Google sign-in, and{" "}
+              <strong>never sends, changes, or deletes</strong> a message.
+            </p>
+            <p>
+              <strong>Where that data goes.</strong> The Extension sends the texts it reads{" "}
+              <strong>only to the App on the same computer</strong>, over a local connection on that
+              computer (127.0.0.1). <strong>The Extension sends nothing to any server</strong> —
+              not to Keepr&apos;s servers and not anywhere else. The App stores the texts encrypted
+              on your computer like your other primary data (Section 3.1). They leave your computer
+              only when <strong>you</strong> send them: by submitting a transaction to your broker
+              (Section 3.3) or by exporting your records (for example, to PDF).
+            </p>
+            <p>
+              <strong>Sync statistics.</strong> The App (not the Extension) sends anonymous
+              statistics about each Sync to Keepr&apos;s cloud — counts, timings, version numbers,
+              and failure codes (for example, how many chats were read). These{" "}
+              <strong>never include message content, names, or phone numbers</strong>. They are
+              part of the device and usage metadata and error diagnostics described in Section 3.2.
+            </p>
+            <p>
+              <strong>What the Extension stores in your browser.</strong> Small settings only, never
+              message content: the time of the last Sync, where you placed its on-page panels, and
+              the key that links it with the App (kept in the browser and never sent).
+            </p>
+            <p>
+              <strong>Your choices.</strong> You can withdraw your consent at any time in the App
+              (Settings › Google Messages); the next Sync asks again. You can switch syncing off for
+              any chat with the switch on its row, and you can delete every text copied from Google
+              Messages with <strong>Force re-import</strong> (Settings › Google Messages). You can
+              also remove the Extension from Chrome at any time.
+            </p>
+            <p>
+              <strong>
+                Chrome Web Store Limited Use. Keepr&apos;s use of information received through the
+                Extension complies with the{" "}
+                <a
+                  href="https://developer.chrome.com/docs/webstore/program-policies/policies"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Chrome Web Store User Data Policy
+                </a>
+                , including the Limited Use requirements.
+              </strong>{" "}
+              Specifically:
+            </p>
+            <ul>
+              <li>
+                We use data handled by the Extension <strong>only</strong> to provide its
+                user-facing feature — keeping your Google Messages texts with your transaction
+                records in the App;
+              </li>
+              <li>
+                We do <strong>not</strong> sell this data, and we do <strong>not</strong> use it for
+                advertising, profiling, or to determine creditworthiness or for lending purposes;
+              </li>
+              <li>
+                We do <strong>not</strong> transfer this data to others except as necessary to
+                provide that feature (such as when you submit a transaction to your broker or export
+                your records), to comply with applicable law, or with your consent; and
+              </li>
+              <li>
+                Humans do not read this data except with your affirmative consent (for example, when
+                you send it to our support), as necessary for security purposes, to comply with
+                applicable law, or where the data has been aggregated and anonymized.
+              </li>
+            </ul>
+
             <h2>4. Connected-Account Data — Google and Microsoft (Email, Contacts, Calendar)</h2>
             <p>
               Keepr can connect to your Google or Microsoft account so that it can build transaction
@@ -488,7 +606,16 @@ export default function Privacy() {
               picture or group messages (MMS)</strong>, and those messages travel from your phone to
               the App on your own computer over your local network rather than through Keepr&apos;s
               servers. Section 3.6 describes what the Companion App reads, where it sends it, and
-              how to turn it off. Text messages you ingest another way — for example from the
+              how to turn it off.
+            </p>
+            <p>
+              <strong>Text messages captured from Google Messages for Web.</strong> If you use the
+              Keepr for Google Messages extension, the App copies texts from Google Messages for Web
+              in Chrome on your computer — including the images in them and reactions — only during
+              a Sync you start, after you have given consent in the App. Those texts travel from
+              Chrome to the App on the same computer over a local connection rather than through
+              Keepr&apos;s servers. Section 3.7 describes what the Extension reads, where it sends
+              it, and how to turn it off or delete what was copied. Text messages you ingest another way — for example from the
               Messages database on your own Mac — are covered by the paragraph above.
             </p>
             <p>
@@ -651,11 +778,14 @@ export default function Privacy() {
               </li>
               <li>
                 <strong>Encryption in transit.</strong> TLS/HTTPS is used across the Services. The
-                Keepr Companion app for Android is the one exception, because its sync does not
-                travel over the internet: it sends directly to your own computer over your local
-                network, and every batch of messages or contacts is encrypted on the phone with
-                AES-256-GCM — under a key established when you pair the two devices — before it
-                leaves the phone.
+                Keepr Companion app for Android and the Keepr for Google Messages extension are the
+                exceptions, because their syncs do not travel over the internet. The Companion App
+                sends directly to your own computer over your local network, and every batch of
+                messages or contacts is encrypted on the phone with AES-256-GCM — under a key
+                established when you pair the two devices — before it leaves the phone. The
+                Extension sends only to the App on the same computer (127.0.0.1), and every request
+                and reply between them is signed with a key established when you link the two, so
+                that other programs on the computer cannot pose as either side or forge them.
               </li>
               <li>
                 <strong>Tenant isolation.</strong> The Portal enforces Postgres row-level security so
