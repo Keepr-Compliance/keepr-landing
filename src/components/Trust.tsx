@@ -1,4 +1,4 @@
-import { LockIcon, ShieldIcon, BuildingIcon, DocCheckIcon } from "./icons";
+import { LockIcon } from "./icons";
 
 // Testimonials section is hidden until we have real, permissioned quotes from named
 // agents. Do NOT set true with placeholder/invented endorsements (FTC violation).
@@ -19,48 +19,15 @@ export function Trust() {
             <LockIcon />
           </div>
           <div>
-            <h3>Local-first, encrypted, and yours</h3>
+            <h3>Local-first, and yours</h3>
             <p>
-              Your messages, emails, and client records are encrypted and stored on your own
-              device — not on our servers, and not your brokerage&apos;s. On team
-              subscriptions, cloud sync is opt-in: only the data you choose ever leaves your
-              computer. Your privacy stays in your control.
+              Your messages, emails, and client records stay on your own device — not on our
+              servers, and not your brokerage&apos;s. Nothing is shared until you choose to:
+              you decide what to submit to your broker and what to export. Your data stays in
+              your control.
             </p>
           </div>
         </div>
-        <div className="trust-grid">
-          <div className="trust-item">
-            <div className="ti-ic">
-              <ShieldIcon />
-            </div>
-            <h3>Your data stays yours</h3>
-            <p>
-              Everything Keepr keeps is encrypted on your own device, with access only you
-              control. You decide what to sync and what to export.
-            </p>
-          </div>
-          <div className="trust-item">
-            <div className="ti-ic">
-              <BuildingIcon />
-            </div>
-            <h3>Made for real estate</h3>
-            <p>
-              Purpose-built for US agents, brokers, and transaction coordinators — the people
-              who have to keep the paper trail.
-            </p>
-          </div>
-          <div className="trust-item">
-            <div className="ti-ic">
-              <DocCheckIcon />
-            </div>
-            <h3>Organize, audit, archive</h3>
-            <p>
-              Keepr keeps your communications tidy, searchable, and exportable. That&apos;s
-              it — it isn&apos;t legal advice or a compliance guarantee.
-            </p>
-          </div>
-        </div>
-
         {/* Hidden until we have REAL, permissioned testimonials from named agents
             (see Testimonials() below). Flip to true only with real, permissioned quotes —
             invented endorsements would be an FTC violation. */}

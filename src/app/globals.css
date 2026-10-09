@@ -154,18 +154,12 @@ h2 { font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1; letter-spacing: -0.0
 @media (max-width: 640px) { .team-cta { flex-direction: column; align-items: flex-start; } .team-cta-actions { width: 100%; } .team-cta-actions .btn { flex: 1 1 0; text-align: center; } }
 
 /* trust */
-.trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.trust-item { display: flex; flex-direction: column; gap: 10px; }
-.trust-item .ti-ic { width: 38px; height: 38px; border-radius: 10px; background: var(--indigo-tint); color: var(--indigo); display: flex; align-items: center; justify-content: center; }
-.trust-item .ti-ic svg { width: 19px; height: 19px; }
-.trust-item h3 { font-size: 16.5px; color: var(--ink); margin: 0; font-weight: 700; letter-spacing: -0.01em; }
-.trust-item p { font-size: 15px; color: var(--body); margin: 0; }
 .sec-banner { display: flex; gap: 18px; align-items: flex-start; background: linear-gradient(180deg, var(--indigo-tint), var(--surface)); border: 1px solid var(--indigo-tint-2); border-radius: 18px; padding: 24px 26px; margin-bottom: 24px; }
 .sec-ic { flex: none; width: 46px; height: 46px; border-radius: 12px; background: var(--indigo); color: #fff; display: flex; align-items: center; justify-content: center; }
 .sec-ic svg { width: 24px; height: 24px; }
 .sec-banner h3 { font-size: 19px; color: var(--ink); margin: 0 0 6px; letter-spacing: -0.015em; font-weight: 700; }
+.sec-banner:last-child { margin-bottom: 0; }
 .sec-banner p { font-size: 15.5px; color: var(--body); margin: 0; max-width: 64ch; }
-@media (max-width: 780px) { .trust-grid { grid-template-columns: 1fr; gap: 26px; } }
 @media (max-width: 620px) { .sec-banner { flex-direction: column; gap: 14px; } }
 
 /* final CTA */
@@ -364,8 +358,6 @@ mark.hl { background: #FEF3C7; color: inherit; border-radius: 3px; padding: 0 1p
 @media (prefers-reduced-motion: reduce) { .sf-caret { animation: none; } }
 
 /* hero security micro-line */
-.hero-secure { display: inline-flex; align-items: center; gap: 7px; margin: 12px 0 0; font-size: 13px; color: var(--muted); }
-.hero-secure svg { width: 15px; height: 15px; color: var(--indigo); flex: none; }
 
 /* testimonials scaffold */
 .testimonials { margin-top: 36px; }

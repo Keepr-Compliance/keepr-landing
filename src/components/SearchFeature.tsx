@@ -14,8 +14,7 @@ export function SearchFeature() {
               Keepr gathers every email and text from a deal into one place, and makes all
               of it searchable. Type a name, an address, a phone number, or a word someone
               mentioned once, and Keepr jumps straight to it. No inbox digging, no scrolling
-              threads. It&apos;s your archive — encrypted on your device, and no one else
-              can touch it.
+              threads. It&apos;s your archive, stored securely on your own device.
             </p>
             <ul className="sf-list">
               <li>
