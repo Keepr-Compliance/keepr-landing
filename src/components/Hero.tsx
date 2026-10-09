@@ -1,5 +1,4 @@
 import { primaryDownloadHref } from "@/lib/site";
-import { LockIcon } from "./icons";
 import { TxDemo } from "./TxDemo";
 import { EmailCapture } from "./EmailCapture";
 
@@ -34,10 +33,6 @@ export function Hero() {
             <span>Mac &amp; Windows</span>
             <span className="sep" />
             <span>Free to set up</span>
-          </p>
-          <p className="hero-secure">
-            <LockIcon /> Encrypted on your device — never on our servers, or your
-            broker&apos;s.
           </p>
           <div className="works-with" aria-label="Works with">
             <span className="ww-label">Works with</span>
