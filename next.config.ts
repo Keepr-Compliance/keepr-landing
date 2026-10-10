@@ -24,6 +24,12 @@ const nextConfig: NextConfig = {
         destination: "https://app.keeprcompliance.com/login/:path*",
         permanent: false,
       },
+      // Support lives on the broker portal.
+      {
+        source: "/support",
+        destination: "https://app.keeprcompliance.com/support",
+        permanent: false,
+      },
     ];
   },
 };
