@@ -579,8 +579,8 @@ export default function Terms() {
               your Account at any time. Deleting the Desktop App or uninstalling it does not by
               itself delete data stored on your device. To delete local data, use Settings →
               Troubleshooting → Reset app data in the Desktop App, or answer Yes when the Windows
-              uninstaller asks &ldquo;Also delete your Keepr data and saved credentials (emails,
-              transactions, and DPAPI-encrypted secrets)?&rdquo; (the default is No).
+              uninstaller asks &ldquo;Also delete your Keepr data and saved credentials…?&rdquo;
+              (the default is No).
             </p>
             <p>
               <strong>15.3 Termination or Suspension by Keepr.</strong> Keepr may suspend or

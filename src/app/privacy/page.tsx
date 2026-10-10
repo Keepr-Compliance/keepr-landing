@@ -616,9 +616,9 @@ export default function Privacy() {
                 <strong>Data on your device.</strong> Data stored locally (Section 3.1) is controlled
                 by <strong>you</strong>. It persists on your device until you delete it. To delete
                 local data, use Settings → Troubleshooting → Reset app data, or answer Yes when the
-                Windows uninstaller asks &ldquo;Also delete your Keepr data and saved credentials
-                (emails, transactions, and DPAPI-encrypted secrets)?&rdquo; (the default is No). We
-                cannot retrieve or delete it for you because we do not have it.
+                Windows uninstaller asks &ldquo;Also delete your Keepr data and saved
+                credentials…?&rdquo; (the default is No). We cannot retrieve or delete it for you
+                because we do not have it.
               </li>
               <li>
                 <strong>Cloud account data.</strong> Data we hold in the cloud (Section 3.2) is
