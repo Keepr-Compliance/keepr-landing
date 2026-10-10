@@ -36,7 +36,7 @@ export default function Privacy() {
           <article className="legal">
             <h1>Keepr Privacy Policy</h1>
             <p className="updated">
-              Version 1.0 (Core) · Effective date: July 18, 2026
+              Version 1.0 (Core) · Effective date: October 10, 2026
             </p>
             <p>
               This Privacy Policy explains how Blue Spaces LLC (&quot;Keepr,&quot; &quot;we,&quot;
@@ -92,9 +92,10 @@ export default function Privacy() {
             <ul>
               <li>
                 <strong>Your primary transaction data stays on your device.</strong> Email bodies,
-                text-message bodies, contacts, transactions, and attachments are stored{" "}
-                <strong>encrypted on your own device</strong> and are <strong>not</strong> synced to
-                Keepr&apos;s servers in the background.
+                text-message bodies, contacts, and transactions are stored in an{" "}
+                <strong>encrypted database (AES-256) on your own device</strong>; depending on your
+                app version, attachments, logs, and phone backups are also encrypted. This data is{" "}
+                <strong>not</strong> synced to Keepr&apos;s servers in the background.
               </li>
               <li>
                 <strong>If you use the Android Companion App, your phone&apos;s data goes to your
@@ -111,7 +112,8 @@ export default function Privacy() {
               <li>
                 <strong>We receive full transaction content only when you explicitly submit a
                 transaction to your broker</strong> for review. Until you take that action, that
-                content does not leave your device.
+                content does not leave your device, except that a property address you type into
+                address autocomplete is sent to Google to suggest matching addresses (Section 8.1).
               </li>
               <li>
                 <strong>Payment data is handled by Stripe.</strong> We do not store full payment card
@@ -121,11 +123,16 @@ export default function Privacy() {
 
             <h2>3. Information We Collect</h2>
             <p>
-              <strong>3.1 Data that stays encrypted on your device and is NOT sent to us.</strong>{" "}
+              <strong>3.1 Data that stays on your device and is NOT sent to us.</strong>{" "}
               When you use the App to build transaction records, the following data is created and
-              stored <strong>encrypted on your own device</strong> using AES-256 (SQLCipher), with
-              the encryption key held in your operating system&apos;s keychain. In the ordinary
-              course, this data is <strong>not transmitted to Keepr&apos;s servers</strong>:
+              stored on your own device. Email bodies, text-message bodies, contacts, and
+              transactions are stored in an <strong>encrypted database (AES-256) on your own
+              device</strong>, with the encryption key held in your operating system&apos;s
+              keychain; depending on your app version, attachments, logs, and phone backups are
+              also encrypted. In the ordinary course, this data is{" "}
+              <strong>not transmitted to Keepr&apos;s servers</strong>, except that a property
+              address you type into address autocomplete is sent to Google to suggest matching
+              addresses (see Section 8.1):
             </p>
             <ul>
               <li>
@@ -479,7 +486,8 @@ export default function Privacy() {
               </strong>{" "}
               Text-message content is ingested from <strong>your own device or a companion
               application</strong> (for example, the Android SMS provider on a paired device, or your
-              Mac). This content is stored encrypted on your device like your other primary data
+              Mac). For iPhone on Windows, Keepr reads messages from a local iPhone backup on your
+              computer. This content is stored encrypted on your device like your other primary data
               (Section 3.1).
             </p>
             <p>
@@ -556,8 +564,8 @@ export default function Privacy() {
                 <strong>Stripe</strong> — Payment processing (billing and payment data).
               </li>
               <li>
-                <strong>Google Maps API</strong> — Property-address autocomplete (typed
-                property-address query strings).
+                <strong>Google Maps Platform</strong> — Address autocomplete (property addresses
+                you type are sent to Google).
               </li>
               <li>
                 <strong>Google (Google Analytics)</strong> — Website traffic and behavior analytics
@@ -605,8 +613,10 @@ export default function Privacy() {
             <ul>
               <li>
                 <strong>Data on your device.</strong> Data stored locally (Section 3.1) is controlled
-                by <strong>you</strong>. It persists on your device until you delete it or uninstall
-                the App. We cannot retrieve or delete it for you because we do not have it.
+                by <strong>you</strong>. It persists on your device until you delete it. To delete
+                local data, use Settings → Troubleshooting → Reset app data, or choose to delete
+                your data when you uninstall Keepr on Windows (by default, uninstalling keeps it).
+                We cannot retrieve or delete it for you because we do not have it.
               </li>
               <li>
                 <strong>Cloud account data.</strong> Data we hold in the cloud (Section 3.2) is
@@ -645,9 +655,12 @@ export default function Privacy() {
             </p>
             <ul>
               <li>
-                <strong>Encryption at rest.</strong> On-device data is encrypted with SQLCipher
-                AES-256, with keys held in your operating system&apos;s keychain; cloud data is
-                encrypted at rest by Supabase.
+                <strong>Encryption at rest.</strong> Keepr&apos;s on-device database is encrypted
+                with AES-256, with keys held in your operating system&apos;s keychain; depending on
+                your app version, attachments, logs, and phone backups are also encrypted; cloud
+                data is encrypted at rest by Supabase. Some data may be temporarily unencrypted
+                while it is being processed (for example, during a phone sync), and files you
+                choose to export, such as reports and diagnostic logs, are not encrypted.
               </li>
               <li>
                 <strong>Encryption in transit.</strong> TLS/HTTPS is used across the Services. The

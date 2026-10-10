@@ -29,7 +29,7 @@ export default function Terms() {
           <article className="legal">
             <h1>Keepr — Terms of Service</h1>
             <p className="updated">
-              Version 1.0 (Core) · Effective Date: July 18, 2026
+              Version 1.0 (Core) · Effective Date: October 10, 2026
             </p>
             <p>
               These Terms of Service (&quot;<strong>Terms</strong>&quot;) form a binding
@@ -577,7 +577,9 @@ export default function Terms() {
             <p>
               <strong>15.2 Termination by You.</strong> You may stop using the Service and delete
               your Account at any time. Deleting the Desktop App or uninstalling it does not by
-              itself delete data stored on your device.
+              itself delete data stored on your device. You can delete local data in the Desktop
+              App under Settings → Troubleshooting → Reset app data, or by choosing to delete your
+              data when you uninstall Keepr on Windows.
             </p>
             <p>
               <strong>15.3 Termination or Suspension by Keepr.</strong> Keepr may suspend or
