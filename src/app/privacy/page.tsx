@@ -25,7 +25,8 @@ export const metadata: Metadata = {
  *
  * AMENDED (BACKLOG-4181) — Diagnostics. Section 3.2's "Error diagnostics" item is
  * now one "Diagnostics" item covering crash and error reports and the desktop
- * App's diagnostics reports, with how to turn each off; Section 8.1's Sentry entry
+ * App's diagnostics reports (slow actions and freezes only), with how to turn
+ * each off in the App; Section 8.1's Sentry entry
  * and Section 9's diagnostics bullet match it. Also NOT yet in
  * keepr-legal-drafts/privacy-policy.md.
  *
@@ -208,14 +209,15 @@ export default function Privacy() {
                 address, and user-agent).
               </li>
               <li>
-                <strong>Diagnostics (on by default; you can turn it off).</strong> Diagnostics
-                covers two kinds of technical report:
+                <strong>Diagnostics.</strong> Diagnostics covers two kinds of technical report:
                 <ul>
                   <li>
                     <strong>Crash and error reports.</strong> When something goes wrong, the
                     Services send a crash or error report, including stack traces and limited
-                    application-state information, together with your account ID, app version,
-                    and operating system. These are collected via Supabase and our
+                    application-state information. In the App, these reports also include your
+                    account ID, app version, and operating system. Crash and error reports from
+                    the Portal do not include your account ID, and the Portal has no setting to
+                    turn them off. These reports are collected via Supabase and our
                     error-monitoring provider, Sentry. We work to minimize personal information in
                     these reports and are actively tightening the scrubbing of personal
                     information from error telemetry; however, crash and error reports may
@@ -223,22 +225,27 @@ export default function Privacy() {
                   </li>
                   <li>
                     <strong>Diagnostics reports.</strong> The App also sends short technical
-                    reports when something goes wrong, such as an action that takes too long, the
-                    App freezing, or an error. Each report contains only: the name of the action
-                    (for example, &quot;contacts import&quot;) and how long it took; counts (for
-                    example, how many items were processed); app version and operating system;
-                    and a random diagnostics ID that is not linked to your hardware and is
-                    replaced every time you turn diagnostics sharing off. Diagnostics reports
-                    never include the content of your messages, emails, contacts, documents, or
-                    files, and never include log text.
+                    reports when an action takes too long or the App freezes. Each report
+                    contains: the time of the report; the app version and whether it is a
+                    production or development build; the operating system; the name of the action
+                    (for example, &quot;contacts import&quot;) and how long it took, the names of
+                    other app actions running at the time, the current sync stage, and how a
+                    freeze ended; counts and sizes (for example, how many items were processed or
+                    roughly how large a response was); simple yes/no flags (for example, whether
+                    the action ended in an error); and a random diagnostics ID that is not linked
+                    to your hardware and is replaced every time you turn diagnostics sharing off.
+                    Diagnostics reports never include the content of your messages, emails,
+                    contacts, documents, or files, and never include log text.
                   </li>
                 </ul>
-                <strong>How to turn it off.</strong> In the App, go to Settings → Data &amp;
-                Privacy. Turning off &quot;Share diagnostics with Keepr&quot; stops diagnostics
-                reports, and sending stops immediately. Turning off &quot;Send crash reports to
-                help fix problems&quot; stops crash and error reports and diagnostics reports
-                together, also immediately; while it is off, &quot;Share diagnostics with
-                Keepr&quot; cannot be turned on.
+                <strong>On by default; how to turn it off.</strong> In the App, crash and error
+                reports and diagnostics reports are on by default. To turn them off, go to
+                Settings → Data &amp; Privacy in the App. Turning off &quot;Share diagnostics with
+                Keepr&quot; stops diagnostics reports, and sending stops immediately. Turning off
+                &quot;Send crash reports to help fix problems&quot; stops crash and error reports
+                and diagnostics reports together, also immediately; while it is off, &quot;Share
+                diagnostics with Keepr&quot; cannot be turned on. These settings control the
+                reports the App sends to Sentry.
               </li>
             </ul>
             <p>
@@ -590,8 +597,9 @@ export default function Privacy() {
               </li>
               <li>
                 <strong>Sentry</strong> (Functional Software, Inc.) — Crash reports and app
-                diagnostics (crash and error details, the diagnostics reports described in Section
-                3.2, app version, operating system, and account ID; PII-minimized).
+                diagnostics (crash and error details; from the App, also the diagnostics reports
+                described in Section 3.2, app version, operating system, and account ID;
+                PII-minimized).
               </li>
               <li>
                 <strong>Stripe</strong> — Payment processing (billing and payment data).
@@ -672,8 +680,8 @@ export default function Privacy() {
               <li>
                 <strong>Diagnostics and logs.</strong> Diagnostics (crash and error reports and
                 diagnostics reports) and audit logs are retained for limited periods appropriate to
-                security and debugging. You can stop diagnostics at any time in the App under
-                Settings → Data &amp; Privacy (see Section 3.2).
+                security and debugging. You can stop the App&apos;s diagnostics at any time under
+                Settings → Data &amp; Privacy in the App (see Section 3.2).
               </li>
             </ul>
             <p>
