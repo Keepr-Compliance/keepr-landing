@@ -572,7 +572,7 @@ export default function Privacy() {
               </li>
               <li>Enable the broker-submission workflow you initiate;</li>
               <li>Process payments and manage billing through Stripe;</li>
-              <li>Monitor, debug, and improve the Services (including analytics and error diagnostics);</li>
+              <li>Monitor, debug, and improve the Services (including analytics and diagnostics);</li>
               <li>Maintain audit logs for security and accountability;</li>
               <li>Communicate with you about your account, transactions, security, and product updates;</li>
               <li>Provide customer support; and</li>
@@ -605,9 +605,10 @@ export default function Privacy() {
               </li>
               <li>
                 <strong>Sentry</strong> (Functional Software, Inc.) — Crash reports and app
-                diagnostics (crash and error details; from the App, also the diagnostics reports
-                described in Section 3.2, app version, operating system, and account ID;
-                PII-minimized).
+                diagnostics (crash and error details from the App, the Companion App, and the
+                Portal; account ID from the App and the Companion App, not the Portal; and from
+                the App, also the diagnostics reports described in Section 3.2, app version, and
+                operating system; PII-minimized).
               </li>
               <li>
                 <strong>Stripe</strong> — Payment processing (billing and payment data).
