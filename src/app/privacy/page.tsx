@@ -23,6 +23,10 @@ export const metadata: Metadata = {
  * 3 now ends at 3.5. keepr-legal-drafts/privacy-policy.md lags this page and must
  * be synced before counsel's final review.
  *
+ * AMENDED (BACKLOG-4181) — Keepr for Google Messages (Chrome extension): Section 1
+ * scope, a new Section 3.6, Section 5 and Section 10's in-transit exception, from
+ * chrome-extension/ in the Mad repo. Not yet in keepr-legal-drafts.
+ *
  * AMENDED (BACKLOG-4181) — Diagnostics. Section 3.2's "Error diagnostics" item is
  * now one "Diagnostics" item covering crash and error reports and the desktop
  * App's diagnostics reports (slow actions and freezes only), with how to turn
@@ -48,8 +52,8 @@ export default function Privacy() {
             <p>
               This Privacy Policy explains how Blue Spaces LLC (&quot;Keepr,&quot; &quot;we,&quot;
               &quot;us,&quot; or &quot;our&quot;) collects, uses, discloses, and protects personal
-              information in connection with the Keepr desktop application, the Keepr broker portal,
-              and our website. By using Keepr, you acknowledge
+              information in connection with the Keepr desktop application, the Keepr for Google
+              Messages Chrome extension, the Keepr broker portal, and our website. By using Keepr, you acknowledge
               the practices described here.
             </p>
             <p>
@@ -67,6 +71,11 @@ export default function Privacy() {
                 <strong>The Keepr desktop application</strong> (macOS and Windows) — the &quot;App&quot;;
               </li>
               <li>
+                <strong>Keepr for Google Messages</strong>, our Chrome extension — the
+                &quot;Extension&quot; — an optional add-on to the App that copies your texts
+                from Google Messages for Web into the App on your own computer;
+              </li>
+              <li>
                 <strong>The Keepr broker portal</strong> at app.keeprcompliance.com — the
                 &quot;Portal&quot;; and
               </li>
@@ -75,8 +84,8 @@ export default function Privacy() {
               </li>
             </ul>
             <p>
-              Together, the App, Portal, and Website are the &quot;Services.&quot; Where the
-              App, Portal, and Website are treated
+              Together, the App, Extension, Portal, and Website are the &quot;Services.&quot;
+              Where the App, Extension, Portal, and Website are treated
               differently — which is often, because of Keepr&apos;s local-first design — we say so.
             </p>
             <p>
@@ -303,6 +312,41 @@ export default function Privacy() {
               <Link href="/cookies">Cookie Policy</Link>.
             </p>
 
+            <p>
+              <strong>3.6 Keepr for Google Messages (Chrome extension).</strong> The Extension is
+              optional and works only together with the App. It runs only on Google Messages for
+              Web (messages.google.com). You link it once with the App on the same computer using
+              a one-time code. A Sync is always started from the App, and before the first Sync
+              the App asks for your consent.
+            </p>
+            <p>
+              <strong>What it reads.</strong> During a Sync, the Extension reads the conversations
+              in Google Messages for Web: the chat&apos;s name, the message text, the date and time,
+              whether you sent or received each message and whether it went as SMS or RCS, the
+              names and phone numbers of the people in each chat,
+              reactions and quoted replies, and the photos in the messages. For other attached
+              files, it reads only the file name and size; the file itself is not copied. When no
+              Sync is running, it shows its per-chat on/off switch on the chat list and copies
+              nothing. It never sends, changes, or deletes a message.
+            </p>
+            <p>
+              <strong>Where that data goes.</strong> Only to the App on the same computer, over a
+              local connection (127.0.0.1) that does not leave your computer. Once the Extension
+              is linked, its requests and the App&apos;s replies are signed with a key set up when
+              you linked it, so the App accepts requests only from your linked Extension and the
+              Extension accepts replies only from the App. The
+              Extension does not send your texts to Keepr&apos;s servers or to anyone else, and it
+              contains no analytics or crash reporting. In the App, the texts are stored encrypted
+              on your computer like your other primary data (Section 3.1) and reach us only if{" "}
+              <strong>you</strong> submit a transaction to your broker (Section 3.3).
+            </p>
+            <p>
+              <strong>How to stop it.</strong> Switch any chat off with the switch on its row,
+              withdraw your consent in the App&apos;s Google Messages settings (texts already in
+              the App stay there), or remove the Extension from Chrome. To delete the texts it
+              copied, use Force re-import in the App&apos;s Google Messages settings.
+            </p>
+
             <h2>4. Connected-Account Data — Google and Microsoft (Email, Contacts, Calendar)</h2>
             <p>
               Keepr can connect to your Google or Microsoft account so that it can build transaction
@@ -459,7 +503,8 @@ export default function Privacy() {
               </strong>{" "}
               Text-message content is ingested from <strong>your own device</strong> (for example,
               the Messages database on your Mac). For iPhone on Windows, Keepr reads messages from a
-              local iPhone backup on your computer. This content is stored encrypted on your device
+              local iPhone backup on your computer. For Android, the Extension copies texts from
+              Google Messages for Web in your browser into the App (Section 3.6). This content is stored encrypted on your device
               like your other primary data (Section 3.1).
             </p>
             <p>
@@ -631,7 +676,10 @@ export default function Privacy() {
                 choose to export, such as reports and diagnostic logs, are not encrypted.
               </li>
               <li>
-                <strong>Encryption in transit.</strong> TLS/HTTPS is used across the Services.
+                <strong>Encryption in transit.</strong> TLS/HTTPS is used across the Services. The
+                one exception is the link between the Extension and the App, which never leaves
+                your computer: it uses a local connection (127.0.0.1), and once the Extension is
+                linked, its requests and the App&apos;s replies are signed (Section 3.6).
               </li>
               <li>
                 <strong>Tenant isolation.</strong> The Portal enforces Postgres row-level security so
