@@ -316,8 +316,9 @@ export default function Privacy() {
               <strong>3.6 Keepr for Google Messages (Chrome extension).</strong> The Extension is
               optional and works only together with the App. It runs only on Google Messages for
               Web (messages.google.com). You link it once with the App on the same computer using
-              a one-time code. A Sync is always started from the App, and before the first Sync
-              the App asks for your consent.
+              a one-time code. A Sync starts only when you start it in the App, or when you choose
+              Try again in Google Messages after a Sync fails. Before the first Sync, the App asks
+              for your consent.
             </p>
             <p>
               <strong>What it reads.</strong> During a Sync, the Extension reads the conversations
@@ -327,24 +328,33 @@ export default function Privacy() {
               reactions and quoted replies, and the photos in the messages. For other attached
               files, it reads only the file name and size; the file itself is not copied. When no
               Sync is running, it shows its per-chat on/off switch on the chat list and copies
-              nothing. It never sends, changes, or deletes a message.
+              nothing. It never sends, edits, or deletes a message. To read a chat it opens it, as
+              you would, so Google Messages may mark that chat as read.
             </p>
             <p>
-              <strong>Where that data goes.</strong> Only to the App on the same computer, over a
-              local connection (127.0.0.1) that does not leave your computer. Once the Extension
+              <strong>Where that data goes.</strong> The Extension sends what it reads to the App on
+              the same computer, over a local connection (127.0.0.1) that does not leave your
+              computer. Once the Extension
               is linked, its requests and the App&apos;s replies are signed with a key set up when
               you linked it, so the App accepts requests only from your linked Extension and the
               Extension accepts replies only from the App. The
               Extension does not send your texts to Keepr&apos;s servers or to anyone else, and it
               contains no analytics or crash reporting. In the App, the texts are stored encrypted
               on your computer like your other primary data (Section 3.1) and reach us only if{" "}
-              <strong>you</strong> submit a transaction to your broker (Section 3.3).
+              <strong>you</strong> submit a transaction to your broker (Section 3.3). For each
+              Sync, the App also sends us counts and timings, such as how many chats and messages
+              were read and how long it took, plus the Extension and Chrome versions. These never
+              include message content, names, or phone numbers (see &quot;Device and usage
+              metadata&quot; in Section 3.2).
             </p>
             <p>
               <strong>How to stop it.</strong> Switch any chat off with the switch on its row,
               withdraw your consent in the App&apos;s Google Messages settings (texts already in
               the App stay there), or remove the Extension from Chrome. To delete the texts it
-              copied, use Force re-import in the App&apos;s Google Messages settings.
+              copied, and their photos, use Force re-import in the App&apos;s Google Messages
+              settings. This also removes them from any transaction they were linked to, but not
+              from a package you have already submitted to your broker. The next Sync copies them
+              again.
             </p>
 
             <h2>4. Connected-Account Data — Google and Microsoft (Email, Contacts, Calendar)</h2>
