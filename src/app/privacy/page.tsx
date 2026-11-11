@@ -16,12 +16,19 @@ export const metadata: Metadata = {
  * bundle, Blue Spaces LLC). Reproduced MOSTLY VERBATIM — reformatted from Markdown
  * to JSX only; legal substance is unchanged. DO NOT edit clause wording here.
  *
- * AMENDED (BACKLOG-2956) — Android companion. Section 1 (scope), Section 2
- * (summary), a new Section 3.6, Section 5, and Section 10 now describe the Keepr
- * Companion app for Android: the phone's own address book as a contact source, and
- * the local-network path from the phone to the user's paired computer. These
- * paragraphs are NOT in keepr-legal-drafts/privacy-policy.md — that source file now
- * lags this page and must be synced before counsel's final review.
+ * AMENDED (BACKLOG-2956), then REVERSED (BACKLOG-4181) — Android companion. The
+ * BACKLOG-2956 paragraphs describing the Keepr Companion app for Android (Section 1
+ * scope, Section 2 summary, Section 3.6, Section 5, Section 10) were removed on the
+ * founder's instruction, along with Section 5's earlier Android SMS example. Section
+ * 3 now ends at 3.5. keepr-legal-drafts/privacy-policy.md lags this page and must
+ * be synced before counsel's final review.
+ *
+ * AMENDED (BACKLOG-4181) — Diagnostics. Section 3.2's "Error diagnostics" item is
+ * now one "Diagnostics" item covering crash and error reports and the desktop
+ * App's diagnostics reports (slow actions and freezes only), with how to turn
+ * each off in the App; Section 8.1's Sentry entry
+ * and Section 9's diagnostics bullet match it. Also NOT yet in
+ * keepr-legal-drafts/privacy-policy.md.
  *
  * TODO(founder/counsel): this is DRAFT text pending final attorney review before it
  * is presented as the operative, public Privacy Policy. Tracked under BACKLOG-2164
@@ -36,13 +43,13 @@ export default function Privacy() {
           <article className="legal">
             <h1>Keepr Privacy Policy</h1>
             <p className="updated">
-              Version 1.0 (Core) · Effective date: October 10, 2026
+              Version 1.0 (Core) · Effective date: November 10, 2026
             </p>
             <p>
               This Privacy Policy explains how Blue Spaces LLC (&quot;Keepr,&quot; &quot;we,&quot;
               &quot;us,&quot; or &quot;our&quot;) collects, uses, discloses, and protects personal
-              information in connection with the Keepr desktop application, the Keepr Companion app
-              for Android, the Keepr broker portal, and our website. By using Keepr, you acknowledge
+              information in connection with the Keepr desktop application, the Keepr broker portal,
+              and our website. By using Keepr, you acknowledge
               the practices described here.
             </p>
             <p>
@@ -60,11 +67,6 @@ export default function Privacy() {
                 <strong>The Keepr desktop application</strong> (macOS and Windows) — the &quot;App&quot;;
               </li>
               <li>
-                <strong>The Keepr Companion app for Android</strong> — the &quot;Companion
-                App&quot; — an optional app you pair with the App on your own computer so that
-                the text messages on your phone become part of your transaction records;
-              </li>
-              <li>
                 <strong>The Keepr broker portal</strong> at app.keeprcompliance.com — the
                 &quot;Portal&quot;; and
               </li>
@@ -73,8 +75,8 @@ export default function Privacy() {
               </li>
             </ul>
             <p>
-              Together, the App, Companion App, Portal, and Website are the
-              &quot;Services.&quot; Where the App, Companion App, Portal, and Website are treated
+              Together, the App, Portal, and Website are the &quot;Services.&quot; Where the
+              App, Portal, and Website are treated
               differently — which is often, because of Keepr&apos;s local-first design — we say so.
             </p>
             <p>
@@ -98,15 +100,8 @@ export default function Privacy() {
                 <strong>not</strong> synced to Keepr&apos;s servers in the background.
               </li>
               <li>
-                <strong>If you use the Android Companion App, your phone&apos;s data goes to your
-                own computer, not to us.</strong> The text messages and contacts it reads from your
-                phone are encrypted on the phone and sent over your local network to the App on the
-                computer you paired it with. That content does <strong>not</strong> pass through
-                Keepr&apos;s servers. See Section 3.6.
-              </li>
-              <li>
                 <strong>We receive a limited set of data by default</strong> — your account profile,
-                device/usage metadata, product analytics, audit logs, and error diagnostics — to
+                device/usage metadata, product analytics, audit logs, and diagnostics — to
                 operate, secure, and improve the Services.
               </li>
               <li>
@@ -202,12 +197,45 @@ export default function Privacy() {
                 address, and user-agent).
               </li>
               <li>
-                <strong>Error diagnostics.</strong> Crash and error reports, including stack traces
-                and limited application-state information, collected via Supabase and our
-                error-monitoring provider, Sentry. We work to minimize personal information in
-                diagnostics and are actively tightening the scrubbing of personal information from
-                error telemetry; however, diagnostics may occasionally include limited personal
-                information.
+                <strong>Diagnostics.</strong> Diagnostics covers two kinds of technical report:
+                <ul>
+                  <li>
+                    <strong>Crash and error reports.</strong> When something goes wrong, the
+                    Services send a crash or error report, including stack traces and limited
+                    application-state information. In the App, these reports also include your
+                    account ID, app version, and operating system. Crash and error reports from
+                    the Portal do not include your account ID, and the Portal has no setting to
+                    turn them off. These reports are collected via Supabase and our
+                    error-monitoring provider, Sentry. We work to minimize personal information in
+                    these reports and are actively tightening the scrubbing of personal
+                    information from error telemetry; however, crash and error reports may
+                    occasionally include limited personal information.
+                  </li>
+                  <li>
+                    <strong>Diagnostics reports.</strong> The App also sends short technical
+                    reports when an action takes too long or the App freezes. Each report
+                    contains: the time of the report; the app version and whether it is a
+                    production or development build; the operating system; the name of the action
+                    (for example, &quot;contacts import&quot;) and how long it took, the names of
+                    other app actions running at the time, the current sync stage, and how a
+                    freeze ended; counts and sizes (for example, how many items were processed or
+                    roughly how large a response was); simple yes/no flags (for example, whether
+                    the action ended in an error); the report&apos;s severity level and an ordering
+                    number; a random reference number, created new for each report; and a random
+                    diagnostics ID that is not linked to your hardware and is replaced every time
+                    you turn diagnostics sharing off.
+                    Diagnostics reports never include the content of your messages, emails,
+                    contacts, documents, or files, and never include log text.
+                  </li>
+                </ul>
+                <strong>On by default; how to turn it off.</strong> In the App, crash and error
+                reports and diagnostics reports are on by default. To turn them off, go to
+                Settings → Data &amp; Privacy in the App. Turning off &quot;Share diagnostics with
+                Keepr&quot; stops diagnostics reports, and sending stops immediately. Turning off
+                &quot;Send crash reports to help fix problems&quot; stops crash and error reports
+                and diagnostics reports together, also immediately; while it is off, &quot;Share
+                diagnostics with Keepr&quot; cannot be turned on. These settings control the
+                reports the App sends to Sentry.
               </li>
             </ul>
             <p>
@@ -273,61 +301,6 @@ export default function Privacy() {
               (including our cookie notice, opt-out controls, and our honoring of Global Privacy
               Control) are described in our{" "}
               <Link href="/cookies">Cookie Policy</Link>.
-            </p>
-
-            <p>
-              <strong>3.6 Keepr Companion app for Android.</strong> The{" "}
-              <strong>Companion App</strong> is optional. It applies only if you install it on an
-              Android phone and pair it with the App on your own computer. If you use Keepr on your
-              computer alone — as most users do — nothing in this Section 3.6 applies to you, and
-              your phone&apos;s messages and address book are never read.
-            </p>
-            <p>
-              When you install the Companion App, pair it with your computer, and grant it the
-              Android permissions it asks for, it reads the following from that phone:
-            </p>
-            <ul>
-              <li>
-                <strong>Text messages (SMS).</strong> The message text, the phone number it was sent
-                to or received from, and the date and time — for messages you have received and
-                messages you have sent. The Companion App does <strong>not</strong> read picture or
-                group messages (MMS).
-              </li>
-              <li>
-                <strong>Contacts from that phone&apos;s own address book.</strong> The
-                contact&apos;s name and phone numbers, along with email addresses and company and
-                job title where the entry has them — used so that Keepr can show you who a message
-                is from instead of a bare phone number. This is your phone&apos;s address book,
-                which is <strong>separate from</strong> the Google and Microsoft contacts described
-                in Section 4: connecting a Google or Microsoft account does not read your phone, and
-                using the Companion App does not read those accounts.
-              </li>
-            </ul>
-            <p>
-              <strong>Where that data goes.</strong> The messages and contacts the Companion App
-              reads are <strong>encrypted on your phone</strong> (AES-256-GCM) and sent{" "}
-              <strong>over your own local network</strong> — for example the Wi-Fi network your
-              phone and your computer are both connected to — to the App on the computer you paired
-              with, where they are stored encrypted on that computer like your other primary data
-              (Section 3.1). That message and contact content is <strong>not sent to Keepr&apos;s
-              servers</strong> and is not stored in our cloud; like anything else on your computer,
-              it reaches us only if <strong>you</strong> submit a transaction to your broker (Section
-              3.3). The Companion App syncs <strong>in the background, on a schedule, including when
-              the app is closed</strong>, so that new messages are captured without you having to
-              open it. It <strong>never sends, forwards, or replies to</strong> a text message.
-            </p>
-            <p>
-              The Companion App does communicate with our servers for two limited purposes, both
-              already described in Section 3.2: you sign in to your Keepr account on the phone
-              (account profile and session information), and the app reports crashes and errors to
-              our error-monitoring provider. Neither carries the content of your text messages or
-              your phone&apos;s address book.
-            </p>
-            <p>
-              You can stop this at any time — turn syncing off in the Companion App&apos;s settings,
-              revoke the SMS or Contacts permission in Android&apos;s system settings, or uninstall
-              the Companion App. Messages and contacts already synced to your computer stay there,
-              under your control (Section 9).
             </p>
 
             <h2>4. Connected-Account Data — Google and Microsoft (Email, Contacts, Calendar)</h2>
@@ -484,20 +457,10 @@ export default function Privacy() {
                 Keepr does not send text messages and does not operate as a messaging carrier or
                 gateway.
               </strong>{" "}
-              Text-message content is ingested from <strong>your own device or a companion
-              application</strong> (for example, the Android SMS provider on a paired device, or your
-              Mac). For iPhone on Windows, Keepr reads messages from a local iPhone backup on your
-              computer. This content is stored encrypted on your device like your other primary data
-              (Section 3.1).
-            </p>
-            <p>
-              <strong>Text messages captured with the Keepr Companion app for Android.</strong> If
-              you use the Companion App, what it captures is <strong>SMS only — it does not read
-              picture or group messages (MMS)</strong>, and those messages travel from your phone to
-              the App on your own computer over your local network rather than through Keepr&apos;s
-              servers. Section 3.6 describes what the Companion App reads, where it sends it, and
-              how to turn it off. Text messages you ingest another way — for example from the
-              Messages database on your own Mac — are covered by the paragraph above.
+              Text-message content is ingested from <strong>your own device</strong> (for example,
+              the Messages database on your Mac). For iPhone on Windows, Keepr reads messages from a
+              local iPhone backup on your computer. This content is stored encrypted on your device
+              like your other primary data (Section 3.1).
             </p>
             <p>
               <strong>
@@ -526,7 +489,7 @@ export default function Privacy() {
               </li>
               <li>Enable the broker-submission workflow you initiate;</li>
               <li>Process payments and manage billing through Stripe;</li>
-              <li>Monitor, debug, and improve the Services (including analytics and error diagnostics);</li>
+              <li>Monitor, debug, and improve the Services (including analytics and diagnostics);</li>
               <li>Maintain audit logs for security and accountability;</li>
               <li>Communicate with you about your account, transactions, security, and product updates;</li>
               <li>Provide customer support; and</li>
@@ -558,7 +521,10 @@ export default function Privacy() {
                 <strong>Vercel</strong> — Hosting of the broker Portal (Portal request/traffic data).
               </li>
               <li>
-                <strong>Sentry</strong> — Error and crash monitoring (error diagnostics, PII-minimized).
+                <strong>Sentry</strong> (Functional Software, Inc.) — Crash reports and app
+                diagnostics (crash and error details from the App and the Portal; account ID from
+                the App, not the Portal; and from the App, the diagnostics reports described in
+                Section 3.2, app version, and operating system; PII-minimized).
               </li>
               <li>
                 <strong>Stripe</strong> — Payment processing (billing and payment data).
@@ -637,8 +603,10 @@ export default function Privacy() {
                 disconnection</strong>, except where retention is required by law.
               </li>
               <li>
-                <strong>Diagnostics and logs.</strong> Error diagnostics and audit logs are retained
-                for limited periods appropriate to security and debugging.
+                <strong>Diagnostics and logs.</strong> Diagnostics (crash and error reports and
+                diagnostics reports) and audit logs are retained for limited periods appropriate to
+                security and debugging. You can stop the App&apos;s diagnostics at any time under
+                Settings → Data &amp; Privacy in the App (see Section 3.2).
               </li>
             </ul>
             <p>
@@ -663,12 +631,7 @@ export default function Privacy() {
                 choose to export, such as reports and diagnostic logs, are not encrypted.
               </li>
               <li>
-                <strong>Encryption in transit.</strong> TLS/HTTPS is used across the Services. The
-                Keepr Companion app for Android is the one exception, because its sync does not
-                travel over the internet: it sends directly to your own computer over your local
-                network, and every batch of messages or contacts is encrypted on the phone with
-                AES-256-GCM — under a key established when you pair the two devices — before it
-                leaves the phone.
+                <strong>Encryption in transit.</strong> TLS/HTTPS is used across the Services.
               </li>
               <li>
                 <strong>Tenant isolation.</strong> The Portal enforces Postgres row-level security so
