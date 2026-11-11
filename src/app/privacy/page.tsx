@@ -215,9 +215,11 @@ export default function Privacy() {
                     <strong>Crash and error reports.</strong> When something goes wrong, the
                     Services send a crash or error report, including stack traces and limited
                     application-state information. In the App, these reports also include your
-                    account ID, app version, and operating system. Crash and error reports from
-                    the Portal do not include your account ID, and the Portal has no setting to
-                    turn them off. These reports are collected via Supabase and our
+                    account ID, app version, and operating system. The Companion App also sends
+                    crash and error reports, which include your account ID; it has no setting to
+                    turn them off (see Section 3.6). Crash and error reports from the Portal do
+                    not include your account ID, and the Portal has no setting to turn them off.
+                    These reports are collected via Supabase and our
                     error-monitoring provider, Sentry. We work to minimize personal information in
                     these reports and are actively tightening the scrubbing of personal
                     information from error telemetry; however, crash and error reports may
@@ -232,8 +234,10 @@ export default function Privacy() {
                     other app actions running at the time, the current sync stage, and how a
                     freeze ended; counts and sizes (for example, how many items were processed or
                     roughly how large a response was); simple yes/no flags (for example, whether
-                    the action ended in an error); and a random diagnostics ID that is not linked
-                    to your hardware and is replaced every time you turn diagnostics sharing off.
+                    the action ended in an error); the report&apos;s severity level and an ordering
+                    number; a random reference number, created new for each report; and a random
+                    diagnostics ID that is not linked to your hardware and is replaced every time
+                    you turn diagnostics sharing off.
                     Diagnostics reports never include the content of your messages, emails,
                     contacts, documents, or files, and never include log text.
                   </li>
@@ -358,11 +362,15 @@ export default function Privacy() {
               The Companion App does communicate with our servers for two limited purposes, both
               already described in Section 3.2: you sign in to your Keepr account on the phone
               (account profile and session information), and the app reports crashes and errors to
-              our error-monitoring provider. Neither carries the content of your text messages or
-              your phone&apos;s address book.
+              our error-monitoring provider. Release versions of the Companion App send these crash
+              and error reports with your account ID, and the Companion App has no setting to turn
+              them off; uninstalling it stops them. Neither carries the content of your text
+              messages or your phone&apos;s address book.
             </p>
             <p>
-              You can stop this at any time — turn syncing off in the Companion App&apos;s settings,
+              You can stop the Companion App reading and syncing your messages and contacts at any
+              time — turn syncing off in the Companion App&apos;s settings (this stops syncing, not
+              crash and error reports),
               revoke the SMS or Contacts permission in Android&apos;s system settings, or uninstall
               the Companion App. Messages and contacts already synced to your computer stay there,
               under your control (Section 9).
